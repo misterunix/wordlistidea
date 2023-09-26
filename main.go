@@ -2,6 +2,7 @@ package main
 
 import (
 	_ "embed"
+	"flag"
 	"fmt"
 	"log"
 	"math/rand"
@@ -23,6 +24,11 @@ var adjectives []string
 var verbs []string
 
 func main() {
+
+	webserver := false
+
+	flag.BoolVar(&webserver, "w", false, "Run as a webserver")
+	flag.Parse()
 
 	/*
 		f, err := os.Open("assets/adjectives.txt")
@@ -55,27 +61,23 @@ func main() {
 	nlen := len(nouns)
 	vlen := len(verbs)
 
-	r := rand.Intn(alen)
-	s := adjectives[r]
-
-	r = rand.Intn(nlen)
-	s += " " + nouns[r]
-
-	r = rand.Intn(vlen)
-	s += " " + verbs[r]
-
-	fmt.Println(s)
-
-	r = rand.Intn(alen)
-	s = adjectives[r]
-
-	r = rand.Intn(nlen)
-	s += " " + nouns[r]
-
-	r = rand.Intn(vlen)
-	s += " " + verbs[r]
-
-	fmt.Println(s)
+	if !webserver {
+		r := rand.Intn(alen)
+		s := adjectives[r]
+		r = rand.Intn(nlen)
+		s += " " + nouns[r]
+		r = rand.Intn(vlen)
+		s += " " + verbs[r]
+		fmt.Println(s)
+		r = rand.Intn(alen)
+		s = adjectives[r]
+		r = rand.Intn(nlen)
+		s += " " + nouns[r]
+		r = rand.Intn(vlen)
+		s += " " + verbs[r]
+		fmt.Println(s)
+		return
+	}
 
 	http.HandleFunc("/", getRoot)
 
@@ -103,9 +105,11 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 	s += " " + nouns[rn]
 
 	rn = rand.Intn(vlen)
-	s += " " + verbs[rn]
+	s += " " + verbs[rn] + "</p>"
 
 	fmt.Fprintln(w, s)
+
+	fmt.Fprintln(w, "<p style=\"font-size:26px;\" >")
 
 	rn = rand.Intn(alen)
 	s = adjectives[rn]
