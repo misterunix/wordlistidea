@@ -1,5 +1,7 @@
 # wordlistidea
 
+![writing prompts](images/fountainpen.jpeg)
+
 Writing prompts for free writing.
 
 Each line is an adjective noun and verb.
