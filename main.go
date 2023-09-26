@@ -7,6 +7,7 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
+	"os"
 	"strings"
 )
 
@@ -76,7 +77,7 @@ func main() {
 		r = rand.Intn(vlen)
 		s += " " + verbs[r]
 		fmt.Println(s)
-		return
+		os.Exit(0)
 	}
 
 	http.HandleFunc("/", getRoot)
