@@ -91,39 +91,47 @@ func main() {
 
 func getRoot(w http.ResponseWriter, r *http.Request) {
 
-	fmt.Fprint(w, "<html><title>Random Adjective Noun Verb</title><body>")
-
-	fmt.Fprintln(w, "<p style=\"font-size:26px;\" >")
+	top := "<html><head><title>Word List Ideas</title></head>"
+	top += "<body><div class=\"container\"><div class=\"header\"><h1>Word List for writing prompts.</h1>"
+	top += "<p><h2>Use these words to help spark your creative side.</h2><p></div><div class=\"content\">"
+	fmt.Fprintln(w, top)
 
 	alen := len(adjectives)
 	nlen := len(nouns)
 	vlen := len(verbs)
 
-	rn := rand.Intn(alen)
-	s := adjectives[rn]
+	for i := 0; i < 2; i++ {
+		fmt.Fprintln(w, "<p style=\"font-size:26px;\" >")
 
-	rn = rand.Intn(nlen)
-	s += " " + nouns[rn]
+		rn := rand.Intn(alen)
+		s := adjectives[rn]
 
-	rn = rand.Intn(vlen)
-	s += " " + verbs[rn] + "</p>"
+		rn = rand.Intn(nlen)
+		s += " " + nouns[rn]
 
-	fmt.Fprintln(w, s)
+		rn = rand.Intn(vlen)
+		s += " " + verbs[rn] + "</p>"
 
-	fmt.Fprintln(w, "<p style=\"font-size:26px;\" >")
+		fmt.Fprintln(w, s)
+	}
 
-	rn = rand.Intn(alen)
-	s = adjectives[rn]
+	bottom := "</div><div class=\"footer\"><p><a href=\"index.html\">Reload</a></p></div></div></body></html>"
+	fmt.Fprintln(w, bottom)
 
-	rn = rand.Intn(nlen)
-	s += " " + nouns[rn]
+	// fmt.Fprintln(w, "<p style=\"font-size:26px;\" >")
 
-	rn = rand.Intn(vlen)
-	s += " " + verbs[rn]
+	// rn = rand.Intn(alen)
+	// s = adjectives[rn]
 
-	fmt.Fprintln(w, s, "</p>")
-	//fmt.Fprintln(w, s, "<br>")
+	// rn = rand.Intn(nlen)
+	// s += " " + nouns[rn]
 
-	fmt.Fprintln(w, "</body></html>")
+	// rn = rand.Intn(vlen)
+	// s += " " + verbs[rn]
+
+	// fmt.Fprintln(w, s, "</p>")
+	// //fmt.Fprintln(w, s, "<br>")
+
+	// fmt.Fprintln(w, "</body></html>")
 
 }
