@@ -20,9 +20,13 @@ var nounsRaw string
 //go:embed assets/verbs.txt
 var verbsRaw string
 
+//go:embed assets/jobs.txt
+var jobsRaw string
+
 var nouns []string
 var adjectives []string
 var verbs []string
+var jobs []string
 
 func main() {
 
@@ -49,10 +53,12 @@ func main() {
 	nouns = strings.Split(nounsRaw, "\n")
 	adjectives = strings.Split(adjectivesRaw, "\n")
 	verbs = strings.Split(verbsRaw, "\n")
+	jobs = strings.Split(jobsRaw, "\n")
 
 	nounsRaw = ""
 	adjectivesRaw = ""
 	verbsRaw = ""
+	jobsRaw = ""
 
 	// fmt.Println("Number of adjectives: ", len(adjectives))
 	// fmt.Println("Number of nouns: ", len(nouns))
@@ -61,21 +67,37 @@ func main() {
 	alen := len(adjectives)
 	nlen := len(nouns)
 	vlen := len(verbs)
+	jlen := len(jobs)
 
 	if !webserver {
-		r := rand.Intn(alen)
-		s := adjectives[r]
-		r = rand.Intn(nlen)
-		s += " " + nouns[r]
-		r = rand.Intn(vlen)
-		s += " " + verbs[r]
-		fmt.Println(s)
+		r := rand.Intn(jlen)
+		j := strings.TrimSpace(jobs[r])
+		s := "\"" + j + "\""
+
 		r = rand.Intn(alen)
-		s = adjectives[r]
+		s += " " + adjectives[r]
+
 		r = rand.Intn(nlen)
 		s += " " + nouns[r]
+
 		r = rand.Intn(vlen)
 		s += " " + verbs[r]
+
+		fmt.Println(s)
+
+		r = rand.Intn(jlen)
+		j = strings.TrimSpace(jobs[r])
+		s = "\"" + j + "\""
+
+		r = rand.Intn(alen)
+		s += " " + adjectives[r]
+
+		r = rand.Intn(nlen)
+		s += " " + nouns[r]
+
+		r = rand.Intn(vlen)
+		s += " " + verbs[r]
+
 		fmt.Println(s)
 		os.Exit(0)
 	}
