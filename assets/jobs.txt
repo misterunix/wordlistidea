@@ -1272,8 +1272,11 @@ Surveying Technicians
 Surveyors
 Survey Researchers
 Sustainability Specialists 
-Switchboard Operators, Including Answering Service
-Tailors, Dressmakers, and Custom Sewers
+Switchboard Operators
+Answering Service
+Tailors
+Dressmakers
+Custom Sewers
 Talent Directors
 Tank Car, Truck, and Ship Loaders
 Tapers
@@ -1335,16 +1338,18 @@ Travel Guide
 Travel Guides
 Treasurers, Controllers, and Chief Financial Officers
 Tree Trimmers and Pruners
-Truck Drivers, Heavy
-Truck Drivers, Heavy and Tractor-Trailer
-Truck Drivers, Light or Delivery Services
+Truck Drivers
+Tractor-Trailer Truck Drivers
+Delivery Services Truck Drivers
 Tutors 
 Typesetting and Composing Machine Operators and Tenders
 Umpires, Referees, and Other Sports Officials
 Upholsterers
 Urban and Regional Planners
 Urologists 
-Ushers, Lobby Attendants, and Ticket Takers
+Ushers
+Lobby Attendants
+Ticket Takers
 Validation Engineers 
 Valve and Regulator Repairers
 Veterinarians
